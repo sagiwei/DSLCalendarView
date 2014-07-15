@@ -63,8 +63,10 @@
 #pragma mark Properties
 
 - (void)setSelectionState:(DSLCalendarDayViewSelectionState)selectionState {
-    _selectionState = selectionState;
-    [self setNeedsDisplay];
+    if (_selectionState != selectionState) {
+        _selectionState = selectionState;
+        [self setNeedsDisplay];
+    }
 }
 
 - (void)setDay:(NSDateComponents *)day {
@@ -87,8 +89,10 @@
 }
 
 - (void)setInCurrentMonth:(BOOL)inCurrentMonth {
-    _inCurrentMonth = inCurrentMonth;
-    [self setNeedsDisplay];
+    if (_inCurrentMonth != inCurrentMonth) {
+        _inCurrentMonth = inCurrentMonth;
+        [self setNeedsDisplay];
+    }
 }
 
 
